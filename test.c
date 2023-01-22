@@ -6,11 +6,11 @@
 /*   By: junhyupa <junhyupa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/22 13:56:30 by junhyupa          #+#    #+#             */
-/*   Updated: 2023/01/22 21:03:27 by junhyupa         ###   ########.fr       */
+/*   Updated: 2023/01/22 21:50:59 by junhyupa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "so_long.h"
 
 typedef struct s_data
 {
@@ -19,6 +19,8 @@ typedef struct s_data
 	int		bits_per_pixel;
 	int		line_length;
 	int		endian;
+	int		img_width;
+	int		img_height;
 }	t_data;
 
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
@@ -39,16 +41,8 @@ int	main(void)
 	win_ptr = mlx_new_window(mlx_ptr, 500, 500, "test_window");
 	image.img = mlx_new_image(mlx_ptr, 500, 500);
 	image.addr = mlx_get_data_addr(image.img, &image.bits_per_pixel, &image.line_length, &image.endian);
-	for (int i = 0; i < 500; i++)
-	{
-		for(int j = 0; j < 500; j++)
-		{
-			if(i == j || i + j == 500)
-				mlx_pixel_put(mlx_ptr, win_ptr, i, j, 0);
-			else
-				mlx_pixel_put(mlx_ptr, win_ptr, i, j, 0x00FFFFFF);
-		}
-	}
+	image.img = mlx_xpm_file_to_image(mlx_ptr, "./so_longxpm/ground", &image.img_width, &image.img_height);
+	mlx_put_image_to_window(mlx_ptr, win_ptr,image.img,50,50);
 	mlx_loop(mlx_ptr);
 	return (0);
 }
