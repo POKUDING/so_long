@@ -6,40 +6,49 @@
 /*   By: junhyupa <junhyupa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/22 13:54:33 by junhyupa          #+#    #+#             */
-/*   Updated: 2023/01/23 23:08:47 by junhyupa         ###   ########.fr       */
+/*   Updated: 2023/01/30 19:14:40 by junhyupa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef	SO_LONG_H
  #define SO_LONG_H
 
-typedef	struct s_data
-{
-	char	**map;
-	int		player_x;
-	int		player_y;
-	int		coins;
-	int		move;
-} t_data;
 
 typedef struct s_img
 {
-	void	*img;
-	int		*width;
-	int		*height;
+	void	*img_ground;
+	void	*img_wall;
+	void	*img_coin;
+	void	*img_front[2];
+	// void	*img_back[2];
+	// void	*img_right[3];
+	// void	*img_left[3];
+	void	*img_closed;
+	void	*img_open;
+	int		width;
+	int		height;
 }	t_img;
 
 typedef struct s_info
 {
 	void	*mlx_ptr;
 	void	*win_ptr;
-	t_img	*img_ground;
-	t_img	*img_wall;
-	t_img	*img_coin;
 	int		map_width;
 	int		map_hegiht;
 }	t_info;
 
+typedef	struct s_data
+{
+	char	**map;
+	int		player_x;
+	int		player_y;
+	int		exit_x;
+	int		exit_y;
+	int		coins;
+	int		move;
+	t_img	*img;
+	t_info	*info;
+} t_data;
 
  #include "./libft/libft.h"
 
@@ -56,10 +65,16 @@ typedef struct s_info
 
 
 
- #include <mlx.h>
+ #include "mlx.h"
  #include <fcntl.h>
 
-void	graphic_preset(t_data data, t_info info);
+void	graphic_map(t_data data, t_info info, t_img img);
+
+void	get_coin(t_data *data,t_info info, t_img img,int x,int y);
+void	move_up(t_data *data, t_info info,t_img img);
+void	move_down(t_data *data, t_info info,t_img img);
+void	move_right(t_data *data, t_info info,t_img img);
+void	move_left(t_data *data, t_info info,t_img img);
 
 int		check_components(char *map);
 int		check_extention(char *s);
@@ -67,7 +82,7 @@ int		check_wall(char **map);
 int		check_square(char **map);
 
 void	info_preset(t_info *info, t_data data);
-void	img_preset(t_info *info);
+void	img_preset(t_img *img,t_info *info);
 void	find_components(t_data *data);
 void	data_preset(t_data *data, char *argv);
 int		key_event(int key, t_data *data);
