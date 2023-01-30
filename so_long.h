@@ -6,16 +6,16 @@
 /*   By: junhyupa <junhyupa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 20:20:00 by junhyupa          #+#    #+#             */
-/*   Updated: 2023/01/30 20:21:24 by junhyupa         ###   ########.fr       */
+/*   Updated: 2023/01/30 20:28:45 by junhyupa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef	SO_LONG_H
- #define SO_LONG_H
+#ifndef SO_LONG_H
+# define SO_LONG_H
 
- #include "./libft/libft.h"
- #include "mlx.h"
- #include <fcntl.h>
+# include "./libft/libft.h"
+# include "mlx.h"
+# include <fcntl.h>
 
 typedef struct s_img
 {
@@ -40,7 +40,7 @@ typedef struct s_info
 	int		map_hegiht;
 }	t_info;
 
-typedef	struct s_data
+typedef struct s_data
 {
 	char	**map;
 	int		player_x;
