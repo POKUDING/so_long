@@ -6,7 +6,7 @@
 /*   By: junhyupa <junhyupa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/22 20:16:22 by junhyupa          #+#    #+#             */
-/*   Updated: 2023/01/30 18:56:12 by junhyupa         ###   ########.fr       */
+/*   Updated: 2023/01/30 19:43:15 by junhyupa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,6 +102,7 @@ void	data_preset(t_data *data, char *argv)
 int	key_event(int key, t_data *data)
 {
 	printf("%d \n", key);
+	printf("coin : %d\n", data->coins);
 	if (key == 13)
 		move_up(data, *data->info, *data->img);
 	if (key == 1)

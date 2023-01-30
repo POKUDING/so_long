@@ -6,7 +6,7 @@
 /*   By: junhyupa <junhyupa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/22 18:19:48 by junhyupa          #+#    #+#             */
-/*   Updated: 2023/01/22 20:55:23 by junhyupa         ###   ########.fr       */
+/*   Updated: 2023/01/30 19:47:49 by junhyupa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ int	infection(char	**map, int x, int y)
 	int	rtn;
 
 	rtn = 0;
+	map[y][x] = 'X';
 	if (map[y][x + 1] == '0' || map[y][x + 1] == 'C')
 	{
 		map[y][x + 1] = 'X';
