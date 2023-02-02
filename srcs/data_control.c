@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   data_control.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: junhyupa <junhyupa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: junhyupa <junhyupa@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/22 20:16:22 by junhyupa          #+#    #+#             */
-/*   Updated: 2023/01/30 20:09:35 by junhyupa         ###   ########.fr       */
+/*   Updated: 2023/02/02 14:55:28 by junhyupa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,40 +25,6 @@ void	info_preset(t_info *info, t_data data)
 	info->win_ptr = mlx_new_window(info->mlx_ptr,
 			info->map_width * 32, info->map_hegiht * 32, "junhyupa");
 }
-
-void	img_preset(t_img *img, t_info *info)
-{
-	img->img_coin = mlx_xpm_file_to_image(info->mlx_ptr,
-			"./so_longxpm/coin16.xpm", &img->width, &img->height);
-	img->img_ground = mlx_xpm_file_to_image(info->mlx_ptr,
-			"./so_longxpm/sand.xpm", &img->width, &img->height);
-	img->img_wall = mlx_xpm_file_to_image(info->mlx_ptr,
-			"./so_longxpm/wall.xpm", &img->width, &img->height);
-	img->img_closed = mlx_xpm_file_to_image(info->mlx_ptr,
-			"./so_longxpm/close32.xpm", &img->width, &img->height);
-	img->img_open = mlx_xpm_file_to_image(info->mlx_ptr,
-			"./so_longxpm/open32.xpm", &img->width, &img->height);
-	img->img_front[0] = mlx_xpm_file_to_image(info->mlx_ptr,
-			"./so_longxpm/front_0.xpm", &img->width, &img->height);
-	img->img_front[1] = mlx_xpm_file_to_image(info->mlx_ptr,
-			"./so_longxpm/front_1.xpm", &img->width, &img->height);
-}
-	// img->img_back[0] = mlx_xpm_file_to_image(info->mlx_ptr,
-	//"./so_longxpm/back_0.xpm", &img->width, &img->height);
-	// img->img_back[1] = mlx_xpm_file_to_image(info->mlx_ptr,
-	//"./so_longxpm/back_1.xpm", &img->width, &img->height);
-	// img->img_right[0] = mlx_xpm_file_to_image(info->mlx_ptr,
-	//"./so_longxpm/right_0.xpm", &img->width, &img->height);
-	// img->img_right[1] = mlx_xpm_file_to_image(info->mlx_ptr,
-	//"./so_longxpm/right_1.xpm", &img->width, &img->height);
-	// img->img_right[2] = mlx_xpm_file_to_image(info->mlx_ptr,
-	//"./so_longxpm/right_2.xpm", &img->width, &img->height);
-	// img->img_left[0] = mlx_xpm_file_to_image(info->mlx_ptr,
-	//"./so_longxpm/left_0.xpm", &img->width, &img->height);
-	// img->img_left[1] = mlx_xpm_file_to_image(info->mlx_ptr,
-	//"./so_longxpm/left_1.xpm", &img->width, &img->height);
-	// img->img_left[2] = mlx_xpm_file_to_image(info->mlx_ptr,
-	//"./so_longxpm/left_2.xpm", &img->width, &img->height);
 
 void	find_components(t_data *data)
 {
@@ -95,19 +61,5 @@ void	data_preset(t_data *data, char *argv)
 	data->coins = 0;
 	find_components(data);
 	data->move = 0;
-}
-
-int	key_event(int key, t_data *data)
-{
-	printf("%d \n", key);
-	printf("coin : %d\n", data->coins);
-	if (key == 13)
-		move_up(data, *data->info, *data->img);
-	if (key == 1)
-		move_down(data, *data->info, *data->img);
-	if (key == 0)
-		move_left(data, *data->info, *data->img);
-	if (key == 2)
-		move_right(data, *data->info, *data->img);
-	return (0);
+	data->status = 2;
 }

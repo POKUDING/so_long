@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: junhyupa <junhyupa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: junhyupa <junhyupa@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 20:20:00 by junhyupa          #+#    #+#             */
-/*   Updated: 2023/01/30 20:28:45 by junhyupa         ###   ########.fr       */
+/*   Updated: 2023/02/02 15:19:00 by junhyupa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,16 +21,16 @@ typedef struct s_img
 {
 	void	*img_ground;
 	void	*img_wall;
-	void	*img_coin;
+	void	*img_coin[4];
 	void	*img_front[2];
+	void	*img_back[2];
+	void	*img_right[3];
+	void	*img_left[3];
 	void	*img_closed;
 	void	*img_open;
 	int		width;
 	int		height;
 }	t_img;
-	// void	*img_back[2];
-	// void	*img_right[3];
-	// void	*img_left[3];
 
 typedef struct s_info
 {
@@ -49,10 +49,17 @@ typedef struct s_data
 	int		exit_y;
 	int		coins;
 	int		move;
+	int		status;
 	t_img	*img;
 	t_info	*info;
 }	t_data;
 
+void	img_preset(t_img *img, t_info *info);
+void	player_img_preset(t_img *img, t_info *info);
+void	coin_img_preset(t_img *img, t_info *info);
+
+void	coin_anime(t_data *data, int i);
+int		img_anime(t_data *data);
 void	my_put_img(t_info info, void *img, int x, int y);
 void	graphic_map(t_data data, t_info info, t_img img);
 
@@ -68,10 +75,8 @@ int		check_wall(char **map);
 int		check_square(char **map);
 
 void	info_preset(t_info *info, t_data data);
-void	img_preset(t_img *img, t_info *info);
 void	find_components(t_data *data);
 void	data_preset(t_data *data, char *argv);
-int		key_event(int key, t_data *data);
 
 char	**copy_map(char **map);
 int		infection(char	**map, int x, int y);

@@ -6,7 +6,7 @@
 /*   By: junhyupa <junhyupa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/22 14:27:22 by junhyupa          #+#    #+#             */
-/*   Updated: 2023/01/22 20:54:14 by junhyupa         ###   ########.fr       */
+/*   Updated: 2023/01/30 20:39:06 by junhyupa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,6 @@ int	check_wall(char **map)
 	y++;
 	if (x > 0 || y > 0)
 		return (1);
-	printf("벽에 둘러쌓인 맵이에요!\n");
 	return (0);
 }
 
@@ -85,6 +84,5 @@ int	check_square(char **map)
 		i++;
 	if (map[i])
 		return (1);
-	printf("네모에요!\n");
 	return (0);
 }

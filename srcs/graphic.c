@@ -3,14 +3,58 @@
 /*                                                        :::      ::::::::   */
 /*   graphic.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: junhyupa <junhyupa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: junhyupa <junhyupa@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 21:33:09 by junhyupa          #+#    #+#             */
-/*   Updated: 2023/01/30 20:05:28 by junhyupa         ###   ########.fr       */
+/*   Updated: 2023/02/02 15:21:16 by junhyupa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
+
+void	coin_anime(t_data *data, int i)
+{
+	int	x;
+	int	y;
+
+	y = 0;
+	while (y < data->info->map_hegiht)
+	{
+		x = 0;
+		while (x < data->info->map_width)
+		{
+			if (data->map[y][x] == 'C')
+			{
+				my_put_img(*data->info, data->img->img_ground, x * 32, y * 32);
+				my_put_img(*data->info, data->img->img_coin[i], x * 32, y * 32);
+			}
+			x++;
+		}
+		y++;
+	}
+}
+
+int	img_anime(t_data *data)
+{
+	static int	i;
+	t_img	img;
+
+	img = *data->img;
+	i++;
+	coin_anime(data, (i / 20) % 4);
+	my_put_img(*data->info, img.img_ground, data->player_x * 32, data->player_y * 32);
+	if (data->status == 2)
+		my_put_img(*data->info, img.img_front[(i / 25 % 2)], data->player_x * 32 + 7, data->player_y * 32 + 4);
+	if (data->status == 8)
+		my_put_img(*data->info, img.img_back[(i / 25 % 2)], data->player_x * 32 + 7, data->player_y * 32 + 4);
+	if (data->status == 4)
+		my_put_img(*data->info, img.img_left[(i / 25 % 3)], data->player_x * 32 + 7, data->player_y * 32 + 4);
+	if (data->status == 6)
+		my_put_img(*data->info, img.img_right[(i / 25 % 3)], data->player_x * 32 + 7, data->player_y * 32 + 4);
+	if (i > 200)
+		i = 0;
+	return (0);
+}
 
 void	my_put_img(t_info info, void *img, int x, int y)
 {
@@ -33,7 +77,7 @@ void	graphic_map(t_data data, t_info info, t_img img)
 			else
 				my_put_img(info, img.img_ground, x * 32, y * 32);
 			if (data.map[y][x] == 'C')
-				my_put_img(info, img.img_coin, x * 32 + 8, y * 32 + 8);
+				my_put_img(info, img.img_coin[0], x * 32, y * 32);
 			else if (data.map[y][x] == 'P')
 				my_put_img(info, img.img_front[0], x * 32 + 7, y * 32 + 4);
 			else if (data.map[y][x] == 'E')
