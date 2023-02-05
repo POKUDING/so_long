@@ -6,7 +6,7 @@
 /*   By: junhyupa <junhyupa@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 21:33:09 by junhyupa          #+#    #+#             */
-/*   Updated: 2023/02/02 15:21:16 by junhyupa         ###   ########.fr       */
+/*   Updated: 2023/02/05 17:23:36 by junhyupa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,20 +37,27 @@ void	coin_anime(t_data *data, int i)
 int	img_anime(t_data *data)
 {
 	static int	i;
-	t_img	img;
+	t_img		img;
 
 	img = *data->img;
 	i++;
+	if (data->status == 0 || data->status == 1)
+		game_over(data, (i / 20) % 3);
 	coin_anime(data, (i / 20) % 4);
-	my_put_img(*data->info, img.img_ground, data->player_x * 32, data->player_y * 32);
+	my_put_img(*data->info, img.img_ground,
+		data->player_x * 32, data->player_y * 32);
 	if (data->status == 2)
-		my_put_img(*data->info, img.img_front[(i / 25 % 2)], data->player_x * 32 + 7, data->player_y * 32 + 4);
+		my_put_img(*data->info, img.img_front[(i / 25 % 2)],
+			data->player_x * 32 + 7, data->player_y * 32 + 4);
 	if (data->status == 8)
-		my_put_img(*data->info, img.img_back[(i / 25 % 2)], data->player_x * 32 + 7, data->player_y * 32 + 4);
+		my_put_img(*data->info, img.img_back[(i / 25 % 2)],
+			data->player_x * 32 + 7, data->player_y * 32 + 4);
 	if (data->status == 4)
-		my_put_img(*data->info, img.img_left[(i / 25 % 3)], data->player_x * 32 + 7, data->player_y * 32 + 4);
+		my_put_img(*data->info, img.img_left[(i / 25 % 3)],
+			data->player_x * 32 + 7, data->player_y * 32 + 4);
 	if (data->status == 6)
-		my_put_img(*data->info, img.img_right[(i / 25 % 3)], data->player_x * 32 + 7, data->player_y * 32 + 4);
+		my_put_img(*data->info, img.img_right[(i / 25 % 3)],
+			data->player_x * 32 + 7, data->player_y * 32 + 4);
 	if (i > 200)
 		i = 0;
 	return (0);

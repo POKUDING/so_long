@@ -6,17 +6,17 @@
 #    By: junhyupa <junhyupa@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/22 13:45:28 by junhyupa          #+#    #+#              #
-#    Updated: 2023/02/02 15:17:57 by junhyupa         ###   ########.fr        #
+#    Updated: 2023/02/05 17:31:53 by junhyupa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME := so_long
 
-CC := CC
+CC := cc
 CFLAGS := -Wall -Werror -Wextra -g -fsanitize=address
 COPT := -framework OpenGL -framework Appkit
 
-SRC := so_long.c checker.c path_finder.c map_maker.c util.c data_control.c graphic.c move.c img_init.c
+SRC := so_long.c checker.c path_finder.c map_maker.c util.c data_control.c graphic.c move.c img_init.c bonus.c
 SRCS := $(addprefix ./srcs/,$(SRC))
 
 OBJS := $(SRCS:.c=.o)

@@ -6,7 +6,7 @@
 /*   By: junhyupa <junhyupa@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/22 20:16:22 by junhyupa          #+#    #+#             */
-/*   Updated: 2023/02/02 14:55:28 by junhyupa         ###   ########.fr       */
+/*   Updated: 2023/02/04 16:13:35 by junhyupa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,11 @@ void	find_components(t_data *data)
 	int	x;
 	int	y;
 
-	y = 1;
-	while (data->map[y])
+	y = 0;
+	while (data->map[++y])
 	{
-		x = 1;
-		while (data->map[y][x])
+		x = 0;
+		while (data->map[y][++x])
 		{
 			if (data->map[y][x] == 'P')
 			{
@@ -49,9 +49,9 @@ void	find_components(t_data *data)
 			}
 			else if (data->map[y][x] == 'C')
 				data->coins++;
-			x++;
+			else if (data->map[y][x] == '0')
+				data->ground++;
 		}
-		y++;
 	}
 }
 
@@ -59,6 +59,7 @@ void	data_preset(t_data *data, char *argv)
 {
 	data->map = build_map(argv);
 	data->coins = 0;
+	data->ground = 0;
 	find_components(data);
 	data->move = 0;
 	data->status = 2;

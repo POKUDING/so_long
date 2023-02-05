@@ -6,7 +6,7 @@
 /*   By: junhyupa <junhyupa@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 14:54:13 by junhyupa          #+#    #+#             */
-/*   Updated: 2023/02/02 15:11:32 by junhyupa         ###   ########.fr       */
+/*   Updated: 2023/02/05 13:59:12 by junhyupa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,30 +33,31 @@ void	img_preset(t_img *img, t_info *info)
 void	player_img_preset(t_img *img, t_info *info)
 {
 	img->img_back[0] = mlx_xpm_file_to_image(info->mlx_ptr,
-		"./so_longxpm/back_0.xpm", &img->width, &img->height);
+			"./so_longxpm/back_0.xpm", &img->width, &img->height);
 	img->img_back[1] = mlx_xpm_file_to_image(info->mlx_ptr,
-		"./so_longxpm/back_1.xpm", &img->width, &img->height);
+			"./so_longxpm/back_1.xpm", &img->width, &img->height);
 	img->img_right[0] = mlx_xpm_file_to_image(info->mlx_ptr,
-		"./so_longxpm/right_0.xpm", &img->width, &img->height);
+			"./so_longxpm/right_0.xpm", &img->width, &img->height);
 	img->img_right[1] = mlx_xpm_file_to_image(info->mlx_ptr,
-		"./so_longxpm/right_1.xpm", &img->width, &img->height);
+			"./so_longxpm/right_1.xpm", &img->width, &img->height);
 	img->img_right[2] = mlx_xpm_file_to_image(info->mlx_ptr,
-		"./so_longxpm/right_2.xpm", &img->width, &img->height);
+			"./so_longxpm/right_2.xpm", &img->width, &img->height);
 	img->img_left[0] = mlx_xpm_file_to_image(info->mlx_ptr,
-		"./so_longxpm/left_0.xpm", &img->width, &img->height);
+			"./so_longxpm/left_0.xpm", &img->width, &img->height);
 	img->img_left[1] = mlx_xpm_file_to_image(info->mlx_ptr,
-		"./so_longxpm/left_1.xpm", &img->width, &img->height);
+			"./so_longxpm/left_1.xpm", &img->width, &img->height);
 	img->img_left[2] = mlx_xpm_file_to_image(info->mlx_ptr,
-		"./so_longxpm/left_2.xpm", &img->width, &img->height);
+			"./so_longxpm/left_2.xpm", &img->width, &img->height);
 }
+
 void	coin_img_preset(t_img *img, t_info *info)
 {
 	img->img_coin[0] = mlx_xpm_file_to_image(info->mlx_ptr,
-		"./so_longxpm/coin0.xpm", &img->width, &img->height);
+			"./so_longxpm/coin0.xpm", &img->width, &img->height);
 	img->img_coin[1] = mlx_xpm_file_to_image(info->mlx_ptr,
-		"./so_longxpm/coin1.xpm", &img->width, &img->height);
+			"./so_longxpm/coin1.xpm", &img->width, &img->height);
 	img->img_coin[2] = mlx_xpm_file_to_image(info->mlx_ptr,
-		"./so_longxpm/coin2.xpm", &img->width, &img->height);
+			"./so_longxpm/coin2.xpm", &img->width, &img->height);
 	img->img_coin[3] = mlx_xpm_file_to_image(info->mlx_ptr,
-		"./so_longxpm/coin3.xpm", &img->width, &img->height);
+			"./so_longxpm/coin3.xpm", &img->width, &img->height);
 }

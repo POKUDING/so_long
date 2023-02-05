@@ -6,7 +6,7 @@
 /*   By: junhyupa <junhyupa@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 20:20:00 by junhyupa          #+#    #+#             */
-/*   Updated: 2023/02/02 15:19:00 by junhyupa         ###   ########.fr       */
+/*   Updated: 2023/02/05 17:31:27 by junhyupa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,10 @@ typedef struct s_img
 	void	*img_left[3];
 	void	*img_closed;
 	void	*img_open;
+	void	*num[10];
+	void	*game_clear[3];
+	void	*game_over;
+	void	*saw;
 	int		width;
 	int		height;
 }	t_img;
@@ -47,12 +51,21 @@ typedef struct s_data
 	int		player_y;
 	int		exit_x;
 	int		exit_y;
+	int		ground;
 	int		coins;
 	int		move;
 	int		status;
 	t_img	*img;
 	t_info	*info;
 }	t_data;
+
+void	game_over(t_data data, int n);
+
+void	make_patrol(t_data data);
+void	check_gameover(t_data data, int x, int y, int n);
+void	move_patrol(t_data data, int n);
+void	patrol_position(t_data data, int n);
+void	graphic_move_cnt(t_data data, t_img img);
 
 void	img_preset(t_img *img, t_info *info);
 void	player_img_preset(t_img *img, t_info *info);
