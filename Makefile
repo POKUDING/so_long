@@ -6,7 +6,7 @@
 #    By: junhyupa <junhyupa@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/22 13:45:28 by junhyupa          #+#    #+#              #
-#    Updated: 2023/02/05 17:31:53 by junhyupa         ###   ########.fr        #
+#    Updated: 2023/02/08 15:18:42 by junhyupa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,16 +16,48 @@ CC := cc
 CFLAGS := -Wall -Werror -Wextra -g -fsanitize=address
 COPT := -framework OpenGL -framework Appkit
 
-SRC := so_long.c checker.c path_finder.c map_maker.c util.c data_control.c graphic.c move.c img_init.c bonus.c
-SRCS := $(addprefix ./srcs/,$(SRC))
+SRC := so_long.c \
+		checker.c \
+		path_finder.c \
+		map_maker.c \
+		util.c \
+		data_control.c \
+		graphic.c \
+		move.c \
+		img_init.c \
+		game.c
+SRCS := $(addprefix ./mandatory_srcs/,$(SRC))
+
+BNS_SRC := so_long_bonus.c \
+			checker_bonus.c \
+			path_finder_bonus.c \
+			map_maker_bonus.c \
+			util_bonus.c \
+			data_control_bonus.c \
+			graphic_bonus.c \
+			move_bonus.c \
+			img_init_bonus.c \
+			game_bonus.c \
+			bonus_bonus.c
+BNS_SRCS := $(addprefix ./bonus_srcs/,$(BNS_SRC))
 
 OBJS := $(SRCS:.c=.o)
+BNS_OBJS := $(BNS_SRCS:.c=.o)
 
 MLX := -L./ -lmlx
-INCLUDE := so_long.h $(MLX)
+
 
 LIBFT := ./libft/libft.a
 LIBFT_DIR := ./libft/
+
+INCLUDE := so_long.h $(MLX)
+BNS_INCLUDE := so_long_bonus.h $(MLX)
+
+
+ifdef BONUS
+	OBJS = $(BNS_OBJS)
+	INCLUDE = $(BNS_INCLUDE)
+endif
 
 all : $(NAME)
 
@@ -34,7 +66,7 @@ all : $(NAME)
 
 clean :
 	make -C $(LIBFT_DIR) clean
-	$(RM) $(OBJS)
+	$(RM) $(OBJS) $(BNS_OBJS)
 
 fclean : clean
 	make -C $(LIBFT_DIR) fclean
@@ -42,10 +74,13 @@ fclean : clean
 
 re : fclean all
 
-$(NAME) : $(OBJS) $(LIBFT)
-	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -I $(INCLUDE) -o $(NAME)
+$(NAME) : $(LIBFT) $(OBJS)
+	$(CC) $(CFLAGS) $^ -I $(INCLUDE) -o $@
 
 $(LIBFT) :
 	make -C $(LIBFT_DIR)
+
+bonus :
+	make BONUS=1
 
 .PHONY : all clean fclean re

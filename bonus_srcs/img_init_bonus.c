@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   img_init.c                                         :+:      :+:    :+:   */
+/*   img_init_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: junhyupa <junhyupa@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 14:54:13 by junhyupa          #+#    #+#             */
-/*   Updated: 2023/02/05 13:59:12 by junhyupa         ###   ########.fr       */
+/*   Updated: 2023/02/08 12:48:35 by junhyupa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "../so_long_bonus.h"
 
 void	img_preset(t_img *img, t_info *info)
 {
@@ -28,6 +28,7 @@ void	img_preset(t_img *img, t_info *info)
 			"./so_longxpm/front_1.xpm", &img->width, &img->height);
 	player_img_preset(img, info);
 	coin_img_preset(img, info);
+	end_img_preset(img, info);
 }
 
 void	player_img_preset(t_img *img, t_info *info)
@@ -60,4 +61,16 @@ void	coin_img_preset(t_img *img, t_info *info)
 			"./so_longxpm/coin2.xpm", &img->width, &img->height);
 	img->img_coin[3] = mlx_xpm_file_to_image(info->mlx_ptr,
 			"./so_longxpm/coin3.xpm", &img->width, &img->height);
+}
+
+void	end_img_preset(t_img *img, t_info *info)
+{
+	img->game_over = mlx_xpm_file_to_image(info->mlx_ptr,
+			"./so_longxpm/gameover.xpm", &img->width, &img->height);
+	img->game_clear[0] = mlx_xpm_file_to_image(info->mlx_ptr,
+			"./so_longxpm/clear0.xpm", &img->width, &img->height);
+	img->game_clear[1] = mlx_xpm_file_to_image(info->mlx_ptr,
+			"./so_longxpm/clear1.xpm", &img->width, &img->height);
+	img->game_clear[2] = mlx_xpm_file_to_image(info->mlx_ptr,
+			"./so_longxpm/clear2.xpm", &img->width, &img->height);
 }
