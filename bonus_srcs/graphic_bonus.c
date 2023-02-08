@@ -6,7 +6,7 @@
 /*   By: junhyupa <junhyupa@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 21:33:09 by junhyupa          #+#    #+#             */
-/*   Updated: 2023/02/08 15:11:21 by junhyupa         ###   ########.fr       */
+/*   Updated: 2023/02/08 18:28:33 by junhyupa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,11 +73,11 @@ void	graphic_map(t_data data, t_info info, t_img img)
 	int		x;
 	int		y;
 
-	y = -1;
-	while (++y < info.map_hegiht)
+	y = 0;
+	while (y < info.map_hegiht)
 	{
-		x = -1;
-		while (++x < info.map_width)
+		x = 0;
+		while (x < info.map_width)
 		{
 			if (data.map[y][x] == '1')
 				my_put_img(info, img.img_wall, x * 32, y * 32);
