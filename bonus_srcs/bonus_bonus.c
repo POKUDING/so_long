@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   bonus_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: junhyupa <junhyupa@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: JUN <JUN@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 13:24:36 by junhyupa          #+#    #+#             */
-/*   Updated: 2023/02/08 14:55:02 by junhyupa         ###   ########.fr       */
+/*   Updated: 2023/02/11 02:12:18 by JUN              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,9 +93,11 @@ void	graphic_move_cnt(t_data data, t_img img)
 
 	cnt = ft_itoa(data.move);
 	i = 0;
+	my_put_img(*data.info, img.img_wall, 0, 0);
+	my_put_img(*data.info, img.img_wall, 32, 0);
 	while (cnt[i])
 	{
-		my_put_img(*data.info, img.num[*cnt - '0'], 6 + (i * 26), 6);
+		my_put_img(*data.info, img.num[cnt[i] - '0'], 6 + (i * 16), 6);
 		i++;
 	}
 	free(cnt);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   util_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: junhyupa <junhyupa@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: JUN <JUN@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/22 14:55:21 by junhyupa          #+#    #+#             */
-/*   Updated: 2023/02/08 15:07:14 by junhyupa         ###   ########.fr       */
+/*   Updated: 2023/02/11 02:07:01 by JUN              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 void	print_move(t_data *data)
 {
 	data->move++;
+	graphic_move_cnt(*data, *data->img);
 	ft_putnbr_fd(data->move, 1);
 	write(1, "\n", 1);
 }

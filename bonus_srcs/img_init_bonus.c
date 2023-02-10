@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   img_init_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: junhyupa <junhyupa@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: JUN <JUN@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 14:54:13 by junhyupa          #+#    #+#             */
-/*   Updated: 2023/02/08 12:48:35 by junhyupa         ###   ########.fr       */
+/*   Updated: 2023/02/11 02:08:33 by JUN              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ void	img_preset(t_img *img, t_info *info)
 	player_img_preset(img, info);
 	coin_img_preset(img, info);
 	end_img_preset(img, info);
+	num_img_preset(img, info);
 }
 
 void	player_img_preset(t_img *img, t_info *info)
@@ -73,4 +74,28 @@ void	end_img_preset(t_img *img, t_info *info)
 			"./so_longxpm/clear1.xpm", &img->width, &img->height);
 	img->game_clear[2] = mlx_xpm_file_to_image(info->mlx_ptr,
 			"./so_longxpm/clear2.xpm", &img->width, &img->height);
+}
+
+void	num_img_preset(t_img *img, t_info *info)
+{
+	img->num[0] = mlx_xpm_file_to_image(info->mlx_ptr,
+			"./so_longxpm/0.xpm", &img->width, &img->height);
+	img->num[1] = mlx_xpm_file_to_image(info->mlx_ptr,
+			"./so_longxpm/1.xpm", &img->width, &img->height);
+	img->num[2] = mlx_xpm_file_to_image(info->mlx_ptr,
+			"./so_longxpm/2.xpm", &img->width, &img->height);
+	img->num[3] = mlx_xpm_file_to_image(info->mlx_ptr,
+			"./so_longxpm/3.xpm", &img->width, &img->height);
+	img->num[4] = mlx_xpm_file_to_image(info->mlx_ptr,
+			"./so_longxpm/4.xpm", &img->width, &img->height);
+	img->num[5] = mlx_xpm_file_to_image(info->mlx_ptr,
+			"./so_longxpm/5.xpm", &img->width, &img->height);
+	img->num[6] = mlx_xpm_file_to_image(info->mlx_ptr,
+			"./so_longxpm/6.xpm", &img->width, &img->height);
+	img->num[7] = mlx_xpm_file_to_image(info->mlx_ptr,
+			"./so_longxpm/7.xpm", &img->width, &img->height);
+	img->num[8] = mlx_xpm_file_to_image(info->mlx_ptr,
+			"./so_longxpm/8.xpm", &img->width, &img->height);
+	img->num[9] = mlx_xpm_file_to_image(info->mlx_ptr,
+			"./so_longxpm/9.xpm", &img->width, &img->height);
 }

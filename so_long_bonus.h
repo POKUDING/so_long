@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: junhyupa <junhyupa@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: JUN <JUN@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 20:20:00 by junhyupa          #+#    #+#             */
-/*   Updated: 2023/02/08 15:07:43 by junhyupa         ###   ########.fr       */
+/*   Updated: 2023/02/11 02:05:11 by JUN              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ void	img_preset(t_img *img, t_info *info);
 void	player_img_preset(t_img *img, t_info *info);
 void	coin_img_preset(t_img *img, t_info *info);
 void	end_img_preset(t_img *img, t_info *info);
+void	num_img_preset(t_img *img, t_info *info);
 
 void	coin_anime(t_data *data, int i);
 int		img_anime(t_data *data);

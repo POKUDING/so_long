@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: junhyupa <junhyupa@student.42seoul.kr>     +#+  +:+       +#+         #
+#    By: JUN <JUN@student.42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/22 13:45:28 by junhyupa          #+#    #+#              #
-#    Updated: 2023/02/08 15:18:42 by junhyupa         ###   ########.fr        #
+#    Updated: 2023/02/09 17:09:01 by JUN              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,7 +44,7 @@ BNS_SRCS := $(addprefix ./bonus_srcs/,$(BNS_SRC))
 OBJS := $(SRCS:.c=.o)
 BNS_OBJS := $(BNS_SRCS:.c=.o)
 
-MLX := -L./ -lmlx
+MLX := -Lmlx -lmlx
 
 
 LIBFT := ./libft/libft.a

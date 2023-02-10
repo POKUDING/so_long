@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: junhyupa <junhyupa@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: JUN <JUN@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/22 15:05:59 by junhyupa          #+#    #+#             */
-/*   Updated: 2023/02/08 14:41:39 by junhyupa         ###   ########.fr       */
+/*   Updated: 2023/02/11 02:23:17 by JUN              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ int	main(int argc, char **argv)
 	graphic_map(data, info, img);
 	data.img = &img;
 	data.info = &info;
+	graphic_move_cnt(data, img);
 	make_patrol(&data);
 	mlx_hook(data.info->win_ptr, 17, 0, close_game, &data);
 	mlx_key_hook(info.win_ptr, key_event, &data);

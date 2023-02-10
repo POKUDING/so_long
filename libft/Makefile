@@ -19,7 +19,7 @@ OBJS_BN := $(SRCS_BN:.c=.o)
 all : $(NAME)
 
 %.o : %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+	-arch -x86_64 $(CC) $(CFLAGS) -c $< -o $@
 
 clean :
 	$(RM) $(OBJS) $(OBJS_BN)
@@ -30,7 +30,7 @@ fclean : clean
 re : fclean all
 
 $(NAME) : $(OBJS) $(if $(filter bonus, $(MAKECMDGOALS)), $(BNS_OBJS))
-	$(AR) $(ARFLAGS) $@ $^
+	-arch -x86_64 $(AR) $(ARFLAGS) $@ $^
 
 bonus : $(NAME)
 
