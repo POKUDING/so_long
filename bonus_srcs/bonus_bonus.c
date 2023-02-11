@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   bonus_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: JUN <JUN@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: junhyupa <junhyupa@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 13:24:36 by junhyupa          #+#    #+#             */
-/*   Updated: 2023/02/11 02:12:18 by JUN              ###   ########.fr       */
+/*   Updated: 2023/02/11 16:52:17 by junhyupa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,16 @@ void	make_patrol(t_data *data)
 	int		x;
 
 	patrol = 0;
-	data->img->saw = mlx_xpm_file_to_image(data->info->mlx_ptr, "./so_longxpm/saw.xpm", &data->img->width, &data->img->height);
+	data->img->saw = mlx_xpm_file_to_image(data->info->mlx_ptr,
+			"./so_longxpm/saw.xpm", &data->img->width, &data->img->height);
 	y = 0;
 	while (patrol < data->ground / 10 && data->map[++y])
 	{
 		x = 0;
 		while (data->map[y][(++x) + 1])
 		{
-			if (data->map[y][x] == '0' && data->map[y][x - 1] == '0' && data->map[y][x + 1] == '0' \
+			if (data->map[y][x] == '0' && \
+				data->map[y][x - 1] == '0' && data->map[y][x + 1] == '0' \
 				&& data->map[y + 1][x] == '0' && data->map[y - 1][x] == '0')
 			{
 				data->map[y][x] = 'S';
@@ -56,7 +58,8 @@ void	move_patrol(t_data *data, int n)
 					(x - 1) * 32, y * 32);
 				my_put_img(*data->info, data->img->img_ground,
 					(x + 1) * 32, y * 32);
-				my_put_img(*data->info, data->img->saw, (x * 32) + (n * 16), y * 32);
+				my_put_img(*data->info, data->img->saw,
+					(x * 32) + (n * 16), y * 32);
 			}
 		}
 	}

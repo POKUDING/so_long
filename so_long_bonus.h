@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: JUN <JUN@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: junhyupa <junhyupa@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 20:20:00 by junhyupa          #+#    #+#             */
-/*   Updated: 2023/02/11 02:05:11 by JUN              ###   ########.fr       */
+/*   Updated: 2023/02/11 16:56:26 by junhyupa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # include "./libft/libft.h"
 # include "mlx.h"
 # include <fcntl.h>
-# include <unistd.h>
 
 typedef struct s_img
 {
